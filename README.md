@@ -67,7 +67,7 @@ Here's an example of **Bored Ape** NFT series :-
 ![bored-ape-yacht-club-nft (1)](https://user-images.githubusercontent.com/124175970/224862305-ca762b98-a29c-4d6f-9693-9642f7c63ae1.gif)
 
 
-## `What is an NFT ?`
+## `How to make a simple NFT ?`
 
 **ERC721 Standard**
 
@@ -77,21 +77,34 @@ ERC721 is a standard for creating non-fungible tokens on the Ethereum blockchain
 
 ERC721 defines a specific set of functions that NFTs must have, like the ability to be transferred from one owner to another, the ability to check who owns a particular NFT, and the ability to create new NFTs. These functions are like different steps in the recipe.
 
+**ERC721 Functions**
+
 Some of the functions included in the ERC721 standard are:
 
-mint: This function creates a new token and assigns it to an owner.
+**mint**: This function creates a new token and assigns it to an owner.
 
-transfer: This function allows the owner of a token to transfer ownership to another address.
+**transfer**: This function allows the owner of a token to transfer ownership to another address.
 
-balanceOf: This function returns the number of tokens owned by a specific address.
+**balanceOf**: This function returns the number of tokens owned by a specific address.
 
-ownerOf: This function returns the address of the current owner of a specific token.
+**ownerOf**: This function returns the address of the current owner of a specific token.
 
-approve: This function allows an address to approve another address to transfer ownership of a specific token.
+**approve**: This function allows an address to approve another address to transfer ownership of a specific token.
 
-safeTransferFrom: This function transfers ownership of a token from one address to another, but also includes additional safety checks to ensure the transfer is successful.
+**safeTransferFrom**: This function transfers ownership of a token from one address to another, but also includes additional safety checks to ensure the transfer is successful.
 
-By following the ERC721 standard, NFTs can be created and used on various Ethereum-based platforms, including marketplaces, games, and other applications.
+**What is OpenZeppelin ?**
+
+Instead of writing all the code for creating an NFT from scratch, developers can use OpenZeppelin's pre-written code to make their own NFTs. This can save a lot of time and effort, and can also help ensure that the code works correctly and is secure.
+
+It's kind of like using Lego blocks to build something - instead of making each block from scratch, you can just use pre-made blocks to build something faster and easier.
+
+With OpenZeppelin, developers can just follow the pre-written code to create their own NFTs without having to start from scratch.
+
+OpenZeppelin has a service called Openzeppelin WIzard, which generates the code for various ERC standards through UI 
+
+<img width="674" alt="image" src="https://user-images.githubusercontent.com/124175970/224864433-fbca60f2-d5a1-496f-a8f5-ce778fabdae0.png">
+
 
 ## `Initiating the Contract`
 
