@@ -48,7 +48,7 @@ This initiative is perfect for those interested in pursuing a career in the web 
 - [`Handling a cross-chain request`](#Handling-a-cross-chain-request)
 - [`Handling the acknowledgement received from destination chain`](#Handling-the-acknowledgement-received-from-destination-chain)
 - [`Full Code`](#Full-Code)
-- [🚀 Steps](#-quick-start)
+- [🚀 Steps](#Steps)
 
 
 ## `What is an NFT ?`
