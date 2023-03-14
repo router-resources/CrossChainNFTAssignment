@@ -101,9 +101,55 @@ It's kind of like using Lego blocks to build something - instead of making each 
 
 With OpenZeppelin, developers can just follow the pre-written code to create their own NFTs without having to start from scratch.
 
-OpenZeppelin has a service called Openzeppelin WIzard, which generates the code for various ERC standards through UI 
+**Simple ERC721 contract using Openzeppelin**
 
-<img width="674" alt="image" src="https://user-images.githubusercontent.com/124175970/224864433-fbca60f2-d5a1-496f-a8f5-ce778fabdae0.png">
+```sh
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+
+contract MyToken is ERC721, ERC721Burnable, Ownable {
+    using Counters for Counters.Counter;
+
+    Counters.Counter private _tokenIdCounter;
+
+    constructor() ERC721("MyToken", "MTK") {}
+
+    function _baseURI() internal pure override returns (string memory) {
+        return "<paste the url here>";
+    }
+
+    function safeMint(address to) public onlyOwner {
+        uint256 tokenId = _tokenIdCounter.current();
+        _tokenIdCounter.increment();
+        _safeMint(to, tokenId);
+    }
+}
+```
+
+The contract is making use of the OpenZeppelin library which includes pre-written functions that make it easier to create NFTs.
+
+Then the name and symbol of the NFT is given as parameters to the constructor.It's using three different pre-written contracts from OpenZeppelin:
+
+**ERC721**: This is the main contract for creating NFTs. It defines the basic functions that NFTs should have, like the ability to be owned and transferred.
+
+**ERC721Burnable** : This is an extension of ERC721 that allows the owner of an NFT to "burn" it, or destroy it completely. This can be useful for controlling the supply of an NFT.
+
+**Ownable** : This is another extension of ERC721 that defines an "owner" for the NFT contract. Only the owner can perform certain functions, like creating new tokens.
+
+The code also includes a "using" statement, which tells the contract to use a library called "Counters". This library includes a function called "Counter" that's used to keep track of the number of tokens that have been created.
+
+The constructor function is defining the name and abbreviation of the NFT. The name is "MyToken" and the abbreviation is "MTK".
+
+The "_baseURI" function is defining the URL where people can go to find more information about the NFT (metadata). This could be either IPFS or other decentralised storage networks. For this, you can make use of tools like [NFTUP](https://nft.storage/docs/how-to/nftup/)
+
+The "safeMint" function is used to create new tokens and assign them to a specific owner. The owner of the NFT contract is the only one who can use this function. It uses the "Counter" function from the Counters library to keep track of the number of tokens that have been created. When a new token is created, the owner can assign it to a specific address.
+
+You can use the above code and deploy using [Remix IDE](https://www.remix.ethereum.org) and Hurray !, you've made your own NFT .
 
 
 ## `Initiating the Contract`
