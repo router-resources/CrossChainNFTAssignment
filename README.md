@@ -319,6 +319,10 @@ _mint(recipient, amount);
 return "";
 }
 ```
+<!-- <img width="667" alt="image" src="https://user-images.githubusercontent.com/124175970/224877602-3e7c7bd2-700c-4ac8-96f5-0e391f8859bf.png"> -->
+
+[![Click here to Open Router CrossTalk Cheatsheet](https://user-images.githubusercontent.com/124175970/224877602-3e7c7bd2-700c-4ac8-96f5-0e391f8859bf.png)]
+(https://github.com/router-resources/CrossChainNFTAssignment/files/10963540/crosstalk.pdf)
 
 [Click here to Open Router CrossTalk Cheatsheet](https://github.com/router-resources/CrossChainNFTAssignment/files/10963540/crosstalk.pdf)
 
@@ -712,12 +716,7 @@ To transfer minted ERC-721 tokens from source chain to destination chain, we mak
 
 🔍 **Browse to [Router Devnet Explorer](https://devnet-explorer.routerprotocol.com/crosstalks)** to see the transactions made. Wait for sometime till you see 4 green checks in your transaction column.This indicates, the tokens have been successfully transferred to the destination chain
 
-
-**2. CrossTalk Cheatsheet**
-
-![CrossTalk Cheatsheet](https://user-images.githubusercontent.com/124175970/224511349-e12f08a1-84d2-4d83-94f1-17b18ca5683f.jpeg)
-
-**3. [Router Devnet Docs](http://devnet-docs.routerprotocol.com/crosstalk/understanding-crosstalk)**
+[Router Devnet Docs](http://devnet-docs.routerprotocol.com/crosstalk/understanding-crosstalk)**
 
 
 
