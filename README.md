@@ -151,6 +151,56 @@ The "safeMint" function is used to create new tokens and assign them to a specif
 
 You can use the above code and deploy using [Remix IDE](https://www.remix.ethereum.org) and Hurray !, you've made your own NFT .
 
+## `Need for CrossChain`
+
+**Bitcoin**
+
+![images](https://user-images.githubusercontent.com/124175970/224867383-360da83c-5053-4f5b-aff3-8c9d1b00942e.png)
+
+Back in 2009, Bitcoin was created by an unknown person called Satoshi Nakamoto, introducing the concept of decentralization. It eliminated the need for a central authority or intermediary to verify transactions, making it possible for people to transact with each other directly.
+
+**Problem with Bitcoin**
+
+Bitcoin was not designed to support smart contracts, which limits its ability to create complex decentralized applications. 
+The inability to deploy smart contracts on the Bitcoin blockchain, makes the scope of decentralization , limited to a very small area.
+
+**Ethereum**
+
+![ethereum-1](https://user-images.githubusercontent.com/124175970/224869429-53317c46-6407-4fa7-b52a-76e691f333e9.jpeg)
+
+Ethereum is a blockchain, which serves as a state machine where people can deploy smart contracts, This enables people to build Dapps (Decentralised Applications on the top of Ethereum" 
+
+**Problem with Ethereum**
+
+Ethereum is not scalable.The cost of gas fees which one need to pay to interact with the smart contracts is quite high. This hinders the businesses of the Dapps buit on the top of Ethereum.
+
+**L2 Solutions of Ethereum**
+
+<img width="589" alt="image" src="https://user-images.githubusercontent.com/124175970/224869825-bfcb3ac6-e0df-40fe-96b0-ca01ccacfe0b.png">
+
+Many L2 solutions for Ethereum are created, keeping in mind Ethereum isn't scalable. The gas fee which one need to pay in order to intereact with the smart conracts is significantly cheaper than Ethereum.
+
+**Problem with L2 solutions of Ethereum**
+
+L2 solutions solves the problem of scalability , but they have much lesser nodes as compared to Ethereum making them less decentralised and secure than Ethereum.
+
+**Blockchain Trilemma*
+
+<img width="488" alt="image" src="https://user-images.githubusercontent.com/124175970/224870341-b8750142-f1e6-43cd-abf5-607fcc6add3e.png">
+
+So, we can clearly see, solving scalability , degrades security and decentralisation and having having more decentralisation and security results in making the chain less scalable .
+
+This is known as Blockchain Trilemma, where it's not possible to ensure scalability, decentralisation and security at the same time . 
+
+**Need for Crosschain**
+
+![image](https://user-images.githubusercontent.com/124175970/224870927-3735e7a6-8f20-4a96-a8d4-e8706abd08d8.png)
+
+Going CrossChain helps us leverage all these 3 features (Decentralisation + Scalabity + Security ) used for different operations performed in a single Dapp.
+This is exactly , where the Router comes in ! It is an interoperability layer to connect blockchains with a goal to integrate all the blockchains within the ecosystem. 
+
+
+
 
 ## `Initiating the Contract`
 
