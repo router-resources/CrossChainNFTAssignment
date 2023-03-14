@@ -674,7 +674,7 @@ constructor( address payable gatewayAddress,
 
 }
 ```
-# 🎯 `Steps`
+## `Steps`
 
 
 ✍️ **Setting up your editor:**
@@ -725,8 +725,6 @@ To transfer minted ERC-721 tokens from source chain to destination chain, we mak
 
 **To build a CrossChain NFT using Router CrossTalk with the following instructions:-**
 
-![nftRouter](https://user-images.githubusercontent.com/124175970/224004658-177790e4-c7f5-4cb4-9c44-810bd6c780d0.gif)
-
 1. Give the NFT a name - "Your name" and symbol - "Your Name's first and 2nd name first letter used as abbreviation".
 
 2. Use Mumbai Testnet as the source chain and Fuji Testnet as the destination chain.
@@ -772,7 +770,7 @@ To participate, you must be:
 * Passionate about Web3 
 
 
-# `Resources`
+
 
 
 
