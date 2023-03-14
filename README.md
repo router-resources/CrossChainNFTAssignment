@@ -36,6 +36,7 @@ This initiative is perfect for those interested in pursuing a career in the web 
 # 🧭 `Table of contents`
 - [🧭 Table of contents](#-table-of-contents)
 - [`What is an NFT ?`](#What-is-an-NFT-?)
+- [`How to make a simple NFT ?`](#How-to-make-a-simple-NFT-?)
 - [`Need for CrossChain ?`](#Need-for-CrossChain)
 - [`What is a CrossChain NFT ?`](#What-is-CrossChain-NFT-?)
 - [`Understanding Router CrossTalk`](#Understanding-Router-CrossTalk)
