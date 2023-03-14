@@ -23,78 +23,23 @@ Please check the [official documentation of Router Protocol](https://www.routerp
 
 We reward 🏅 badges to individuals who complete our assignments!
 
+First, you need to go through the guide which will teach you the concepts required for the assignment. Then you need to complete the assignment based on the what you learnt.
+
 The journey is divided into multiple stages, each with its own set of points. As you complete Assignment 1, you'll earn a certain number of points, and the same goes for Assignment 2, all the way up to the Final Assignment. Once you've earned a certain benchmark points, you'll receive an NFT badge as a token of your achievement.
 
 Each assignment has its own unique set of points. For every 100 points earned, you'll receive a 🥉 Bronze Router Expert badge, for 500 points, you'll get a 🥈 Silver badge, and for 1000 points, you'll receive a coveted 🥇 Gold badge. These badges will add an extra shine to your resume and can be a golden ticket to working with us.
 
 This initiative is perfect for those interested in pursuing a career in the web 3 space, and the badges can serve as a glowing recommendation for future opportunities. So what are you waiting for? Let's get started on the path to becoming a Router Expert! 🚀
 
-# `Assignment description`
-
-**To build a CrossChain NFT using Router CrossTalk with the following instructions:-**
-
-![nftRouter](https://user-images.githubusercontent.com/124175970/224004658-177790e4-c7f5-4cb4-9c44-810bd6c780d0.gif)
-
-1. Give the NFT a name - "Your name" and symbol - "Your Name's first and 2nd name first letter used as abbreviation".
-
-2. Use Mumbai Testnet as the source chain and Fuji Testnet as the destination chain.
-
-3. Mint the NFT with id = 450 on the source chain.
-
-4. Transfer the NFT from the source chain to the destination chain.
-
-5. Commit your solidity file to the repository.
-
-6. Copy the transaction hash from the Router Explorer and submit in this [form](https://docs.google.com/forms/d/e/1FAIpQLSd8Xuiuw32kOqGsWmT5s7GLjLVZ_rHXw9bAJbdbr0XzrVG6RA/viewform?embedded=true) 
-
-**Number of Points:**
-
-You will earn 100 points after you have been evaluated based on the assignmnet.
-
-# `Evaluation Process:`
-
-We'll evaluate you on the basis of the following :
-
-1. Whether you made use of the CrossTalk Library to build the CrossChain NFT.
-
-2. Whether you followed all the instructions given in **Assignment description** or not
-
-3. Whether you transferred the NFT from the source chain (Mumbai Testnet) to the destination chain (Fuji Testnet) using Router CrossTalk. We check this by the transaction hash that you provide in the form]
-
-# `Recommended qualifications`
-
-**Desired Skills:**
-
-- Familiarity with the Git and GitHub
-- Familiarity with Basics of Blockchain.
-- Familiarity with Basics of Solidity Language.
-- Understands the need of going Cross-Chain.
-
-
-### Eligibility
-
-To participate, you must be:
-
-* 16 years or older
-
-* Passionate about Web3 
-
-
-# `Resources`
-
-**1. CrossChain NFT Cookbook:-**
-
-> Effortlessly transfer NFT's from one chain to another. Made using Router Cross-Talk.
-
-This project is built with [Router CrossTalk](https://dev.routerprotocol.com/crosstalk-library/overview/introduction)
-
-Router Protocol is a solution introduced to address the issues hindering the usability of cross-chain liquidity migration in the DeFi ecosystem. It acts as a bridge connecting various layer 1 and layer 2 blockchains, allowing for the flow of contract-level data across them. The Router Protocol can either transfer tokens between chains or initiate operations on one chain and execute them on another.
-
-Please check the [official documentation of Router Protocol](https://www.routerprotocol.com/) 
-
+# `Guide`
 
 # 🧭 `Table of contents`
 - [🧭 Table of contents](#-table-of-contents)
+- [`What is an NFT ?`](#What-is-an-NFT-?)
+- [`Need for CrossChain ?`](#Need-for-CrossChain)
+- [`What is a CrossChain NFT ?`](#What-is-CrossChain-NFT-?)
+- [`Understanding Router CrossTalk`](#Understanding-Router-CrossTalk)
+- [`CrossTalk Cheatsheet`](#Understanding-Router-CrossTalk)
 - [`Initiating the Contract`](#Initiating-the-Contract)
 - [`Creating state variables and the constructor`](#Creating-state-variables-and-the-constructor)
 - [`Setting up the Destination Contract on the Source Contract`](#Setting-up-the-Destination-Contract-on-the-Source-Contract)
@@ -105,7 +50,18 @@ Please check the [official documentation of Router Protocol](https://www.routerp
 - [🚀 Steps](#-quick-start)
 
 
-  
+## `What is an NFT ?`
+
+![_117548721_nfts2](https://user-images.githubusercontent.com/124175970/224860849-f037eb49-0288-49b8-a922-e08015b5280a.jpg)
+
+
+NFT stands for Non-Fungible Token. Think of it like a digital certificate of ownership for something unique, like a rare trading card or a piece of art. Unlike regular currency, which is fungible (meaning one unit is interchangeable with another), NFTs are unique and cannot be exchanged for something else.
+
+NFTs are created using blockchain technology, which makes them secure and verifiable. They can represent anything that has value and uniqueness, such as digital art, music, videos, tweets, and even virtual real estate. When someone buys an NFT, they are buying the ownership rights to that specific item, which is recorded on the blockchain for everyone to see.
+
+The value of NFTs is determined by market demand, like any other collectible item. Some NFTs have sold for millions of dollars, while others are more affordable. NFTs have gained popularity recently as a way for artists and creators to monetize their digital creations and for collectors to own a unique piece of digital history.
+
+
 ## `Initiating the Contract`
 
 For initiating the smart contract named "nft", the contract imports four external contracts :-
@@ -498,6 +454,61 @@ To transfer minted ERC-721 tokens from source chain to destination chain, we mak
 ![CrossTalk Cheatsheet](https://user-images.githubusercontent.com/124175970/224511349-e12f08a1-84d2-4d83-94f1-17b18ca5683f.jpeg)
 
 **3. [Router Devnet Docs](http://devnet-docs.routerprotocol.com/crosstalk/understanding-crosstalk)**
+
+
+
+# `Assignment description`
+
+**To build a CrossChain NFT using Router CrossTalk with the following instructions:-**
+
+![nftRouter](https://user-images.githubusercontent.com/124175970/224004658-177790e4-c7f5-4cb4-9c44-810bd6c780d0.gif)
+
+1. Give the NFT a name - "Your name" and symbol - "Your Name's first and 2nd name first letter used as abbreviation".
+
+2. Use Mumbai Testnet as the source chain and Fuji Testnet as the destination chain.
+
+3. Mint the NFT with id = 450 on the source chain.
+
+4. Transfer the NFT from the source chain to the destination chain.
+
+5. Commit your solidity file to the repository.
+
+6. Copy the transaction hash from the Router Explorer and submit in this [form](https://docs.google.com/forms/d/e/1FAIpQLSd8Xuiuw32kOqGsWmT5s7GLjLVZ_rHXw9bAJbdbr0XzrVG6RA/viewform?embedded=true) 
+
+**Number of Points:**
+
+You will earn 100 points after you have been evaluated based on the assignmnet.
+
+# `Evaluation Process:`
+
+We'll evaluate you on the basis of the following :
+
+1. Whether you made use of the CrossTalk Library to build the CrossChain NFT.
+
+2. Whether you followed all the instructions given in **Assignment description** or not
+
+3. Whether you transferred the NFT from the source chain (Mumbai Testnet) to the destination chain (Fuji Testnet) using Router CrossTalk. We check this by the transaction hash that you provide in the form]
+
+# `Recommended qualifications`
+
+**Desired Skills:**
+
+- Familiarity with the Git and GitHub
+- Familiarity with Basics of Blockchain.
+- Familiarity with Basics of Solidity Language.
+- Understands the need of going Cross-Chain.
+
+
+### Eligibility
+
+To participate, you must be:
+
+* 16 years or older
+
+* Passionate about Web3 
+
+
+# `Resources`
 
 
 
