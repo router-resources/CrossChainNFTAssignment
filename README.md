@@ -321,9 +321,11 @@ return "";
 }
 ```
 
-[crosstalk.pdf](https://github.com/router-resources/CrossChainNFTAssignment/files/10963540/crosstalk.pdf)
+[Click here to Open Router CrossTalk Cheatsheet](https://github.com/router-resources/CrossChainNFTAssignment/files/10963540/crosstalk.pdf)
 
 # `Making CrossChain NFT using Router CrossTalk`
+
+![nftRouter](https://user-images.githubusercontent.com/124175970/224004658-177790e4-c7f5-4cb4-9c44-810bd6c780d0.gif)
 
 ## `Initiating the Contract`
 
