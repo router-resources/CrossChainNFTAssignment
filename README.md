@@ -67,6 +67,31 @@ Here's an example of **Bored Ape** NFT series :-
 ![bored-ape-yacht-club-nft (1)](https://user-images.githubusercontent.com/124175970/224862305-ca762b98-a29c-4d6f-9693-9642f7c63ae1.gif)
 
 
+## `What is an NFT ?`
+
+**ERC721 Standard**
+
+![1_-Aq82tW0D4c9Xn8zHRYecw](https://user-images.githubusercontent.com/124175970/224863210-5b6262b9-e793-49ee-b1f0-1158eda92cf0.png)
+
+ERC721 is a standard for creating non-fungible tokens on the Ethereum blockchain. The ERC721 standard is like a set of rules that all NFTs on the Ethereum blockchain must follow. Think of it like a recipe for making a cake - you need certain ingredients and instructions to make sure it turns out right.
+
+ERC721 defines a specific set of functions that NFTs must have, like the ability to be transferred from one owner to another, the ability to check who owns a particular NFT, and the ability to create new NFTs. These functions are like different steps in the recipe.
+
+Some of the functions included in the ERC721 standard are:
+
+mint: This function creates a new token and assigns it to an owner.
+
+transfer: This function allows the owner of a token to transfer ownership to another address.
+
+balanceOf: This function returns the number of tokens owned by a specific address.
+
+ownerOf: This function returns the address of the current owner of a specific token.
+
+approve: This function allows an address to approve another address to transfer ownership of a specific token.
+
+safeTransferFrom: This function transfers ownership of a token from one address to another, but also includes additional safety checks to ensure the transfer is successful.
+
+By following the ERC721 standard, NFTs can be created and used on various Ethereum-based platforms, including marketplaces, games, and other applications.
 
 ## `Initiating the Contract`
 
