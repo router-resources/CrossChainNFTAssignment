@@ -323,7 +323,7 @@ return "";
 
 ![Click here to Open Router CrossTalk Cheatsheet](https://user-images.githubusercontent.com/124175970/224877602-3e7c7bd2-700c-4ac8-96f5-0e391f8859bf.png)
 
-[Click here to Open Router CrossTalk Cheatsheet](https://github.com/router-resources/CrossChainNFTAssignment/files/10963540/crosstalk.pdf)
+[Click here to download Router CrossTalk Cheatsheet](https://github.com/router-resources/CrossChainNFTAssignment/files/10963540/crosstalk.pdf)
 
 # `Making CrossChain NFT using Router CrossTalk`
 
