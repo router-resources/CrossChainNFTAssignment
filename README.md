@@ -184,7 +184,7 @@ Many L2 solutions for Ethereum are created, keeping in mind Ethereum isn't scala
 
 L2 solutions solves the problem of scalability , but they have much lesser nodes as compared to Ethereum making them less decentralised and secure than Ethereum.
 
-**Blockchain Trilemma*
+**Blockchain Trilemma**
 
 <img width="488" alt="image" src="https://user-images.githubusercontent.com/124175970/224870341-b8750142-f1e6-43cd-abf5-607fcc6add3e.png">
 
@@ -194,13 +194,136 @@ This is known as Blockchain Trilemma, where it's not possible to ensure scalabil
 
 **Need for Crosschain**
 
-![image](https://user-images.githubusercontent.com/124175970/224870927-3735e7a6-8f20-4a96-a8d4-e8706abd08d8.png)
+<img width="269" alt="image" src="https://user-images.githubusercontent.com/124175970/224871409-eda67083-9557-4ef4-bc38-9b6e311a3c3a.png">
 
 Going CrossChain helps us leverage all these 3 features (Decentralisation + Scalabity + Security ) used for different operations performed in a single Dapp.
 This is exactly , where the Router comes in ! It is an interoperability layer to connect blockchains with a goal to integrate all the blockchains within the ecosystem. 
 
+<img width="581" alt="image" src="https://user-images.githubusercontent.com/124175970/224871477-a1f06b33-0b74-4244-9b3f-3291e246950d.png">
 
+## `What is a CrossChain NFT ?`
 
+<img width="461" alt="image" src="https://user-images.githubusercontent.com/124175970/224872315-6b455b3f-e822-400d-ab2d-cb81ad135f5d.png">
+
+CrossChain NFTs are non-fungible tokens that can exist and be traded on multiple different blockchain networks. This means that an NFT created on one blockchain network, such as Ethereum, can be moved to and traded on another blockchain network, such as Binance Smart Chain or Polygon.
+
+Imagine you have an NFT on the Ethereum blockchain that represents a piece of artwork. If you want to sell or trade that NFT on another blockchain network, you would need to create a new NFT on that network, which can be time-consuming and costly. However, with CrossChain NFTs, you can simply transfer the original NFT to the new blockchain network, enabling you to sell or trade it without having to go through the process of creating a new one.
+
+## `Understanding Router CrossTalk`
+
+**Overview**
+
+Router's CrossTalk library is a tool that makes it easy for different blockchains to communicate with each other. This library is designed to work with Router's infrastructure, and allows contracts on one blockchain to talk to contracts on another blockchain. You can use this library in your own development projects to make it easier for your contracts to communicate across different blockchains, without disrupting other parts of your project.
+
+**Gateway Contracts**
+
+Gateway contracts are contracts which are pre-deployed (refer appendix) on supported blockchains for cross-chain communication.The source chain's gateway contract communicates with the destination chain's gateway contract, enabling communication between application contracts deployed on different chains
+
+[Gateway Contract Addresses](https://devnet.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config)
+
+**CrossTalk Workflow**
+
+<img width="503" alt="image" src="https://user-images.githubusercontent.com/124175970/224872866-cb82abb4-d072-4c7d-bc46-672a18afbb54.png">
+
+When a user wants to execute a cross-chain request, they call the "requestToDest" function on the Router's Gateway contract. They pass the payload of data to be transferred from the source chain to the destination chain along with thenecessary parameters.The "requestToDest" function sends the data to the destination chain where the user's contract with the "handleRequestFromSource" function is waiting to receive it.Once the data is received, the "handleRequestFromSource" function processes it on thedestination chain.After processing the data, the destination chain sends an acknowledgment back to the source chain where "handleCrossTalkAck" function in the user's contract is used to handle it.
+
+**Understanding CrossTalk Functions**
+
+Router’s Gateway contracts have a function named requestToDest that facilitates the transmission of a cross-chain message. Whenever users want to execute a cross-chain request, they can call this function by passing the payload to be transferred from the source to the destination chain along with the required parameters.
+
+In addition to calling the aforementioned function, CrossTalk users will also have to implement two functions on their contracts:
+
+To handle a cross-chain request on the destination chain, users are required to include a handleRequestFromSource function on their destination chain contracts.
+To process the acknowledgment of their requests on the source chain, user will have to implement a handleCrossTalkAck function on their source chain contracts.
+
+**requestToDest parameters**
+
+1) requestArgs is a struct having these parameters :
+a) expiryTimestamp: The timestamp by which your 
+cross-chain call will expire
+b) isAtomicCalls: To make a batch of transactions 
+atomic, set it to true else false
+c) feePayer: This specifies the address on the 
+Router chain from which the cross-chain fee will be 
+deducted.
+For example:- 
+```sh 
+Utils.RquestArgs(1000000000000000, 
+false, Utils.FeePayer.APP)
+```
+2) These structs should also be passed as parameters to requestToDest function to set the acknowledgement type , gas limit and gas price for 
+acknowledgment
+```sh
+Utils.AckType(Utils.AckType.NO_ACK),
+Utils.AckGasParams (destGasLimit, destGasPrice)
+```
+3) destinationChainParams: is a struct having 
+these parameter:-
+a) gasLimit: Required gas limit for executing 
+cross-chain requests
+b)gasPrice: Gas price in wei to be used on the destination chain.
+c)destChainType: Represents the type of chain
+d) destChainId: Chain ID of destination chain, in 
+string format.
+```sh
+Utils.DestinationChainParams(destGasLimit,destGasPrice,_dstChainType,
+_dstChainId)
+```
+4) contractCalls: struct , including an array of payloads and contract addresses to be sent to the destination chain. You can send any information you want, and each piece of data will be sent to the respective contract address that you specify in the arrays.
+```sh
+struct ContractCalls {
+ bytes[] payloads;
+ bytes[] destContractAddresses;}
+ ```
+ 
+**Example Code for Above**
+
+```sh
+IGateway(gatewayContract).requestToDest(
+Utils.RequestArgs(1000000000000000, false,
+Utils.FeePayer.APP),
+Utils.AckType(Utils.AckType.NO_ACK),
+Utils.AckGasParams(0,0),
+Utils.DestinationChainParams(
+destGasLimit,
+destGasPrice,
+_dstChainType,
+_dstChainId
+),
+Utils.ContractCalls(payloads, addresses)
+);
+```
+
+**handleRequestFromSource
+
+In this function, you will get the address of the contract that initiated this request from the source chain, the payload you created on the source chain, the source chain ID, and the source chain type. After receiving this information, you can process your payload and complete your cross-chain transaction.
+
+**Example Code for above**
+
+```sh
+function handleRequestFromSource(
+bytes memory srcContractAddress,
+bytes memory payload,
+string memory srcChainId,
+uint64 srcChainType
+) external returns (bytes memory) {
+require(
+keccak256(srcContractAddress) ==
+keccak256(ourContractOnChains[srcChainType][srcChainId]),
+"Invalid src chain"
+);
+(uint256 amount, address recipient) = abi.decode(
+payload,
+(uint256, address)
+);
+_mint(recipient, amount);
+return "";
+}
+```
+
+[crosstalk.pdf](https://github.com/router-resources/CrossChainNFTAssignment/files/10963540/crosstalk.pdf)
+
+# `Making CrossChain NFT using Router CrossTalk`
 
 ## `Initiating the Contract`
 
