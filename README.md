@@ -62,6 +62,11 @@ NFTs are created using blockchain technology, which makes them secure and verifi
 
 The value of NFTs is determined by market demand, like any other collectible item. Some NFTs have sold for millions of dollars, while others are more affordable. NFTs have gained popularity recently as a way for artists and creators to monetize their digital creations and for collectors to own a unique piece of digital history.
 
+Here's an example of **Bored Ape** NFT series :-
+
+![bored-ape-yacht-club-nft (1)](https://user-images.githubusercontent.com/124175970/224862305-ca762b98-a29c-4d6f-9693-9642f7c63ae1.gif)
+
+
 
 ## `Initiating the Contract`
 
