@@ -93,48 +93,7 @@ Router Protocol is a solution introduced to address the issues hindering the usa
 Please check the [official documentation of Router Protocol](https://www.routerprotocol.com/) 
 
 
-# 🎯 `Steps`
-
-
-✍️ **Setting up your editor:**
-
-Browse to [Remix IDE](https://remix.ethereum.org/) and create a new file with ".sol" extension.
-
-💿 **Install all dependencies:**
-
-You don't need to install any dependencies. Remix automatically downloads all the dependencies for you during the time of compile.
-
-🧑‍💻 **Create your CrossChain ERC-721 Contract:**
-
-To create the contract for your CrossChain ERC-721 , copy-paste the [`Code`](#Full-Code) in the Remix Work Area and compile it.
-The Code has been comprehensively explained in this repository. Click [`here`](#Initiating-the-Contract) for the explanation.
-
-🚀 **Deploying the Contract:**
-
-You need to deploy the same contract on the source chain as well as the destination chain and pass in the required parameters to the [`constructer`](#Creating-state-variables-and-the-constructor) while deploying.
-
-🔨 **Mint created ERC-721 token on Source Chain:**
-
-In order to mint the created ERC-721 token on the source , mint function defined in openzeppelin can be used.
-
-🤝 **Set destination contract to source contract and source contract to destination contract:**
-
-To set destination contract to source contract and source contract to destination contract, we make use of setContractOnChain function. For more info, go to [`Setting up the Destination Contract on the Source Contract`](#Setting-up-the-Destination-Contract-on-the-Source-Contract)
-
-💵 **Send Route tokens to the source contract:**
-
-To send Route tokens to the source contract, copy the source contract address, visit https://devnet-faucet.routerprotocol.com/ , paste the address there and click on Get Route
-
-🚂 **Transfer minted ERC-721 tokens from source chain to destination chain:**
-
-To transfer minted ERC-721 tokens from source chain to destination chain, we make use of transferCrosschain function, which burns token with given id on source chain and mint the same token having same id on the destination chain. For more info, go to [`Transferring tokens from a source chain to a destination chain`](#Transferring-tokens-from-a-source-chain-to-a-destination-chain)
-
-🔍 **Browse to [Router Devnet Explorer](https://devnet-explorer.routerprotocol.com/crosstalks)** to see the transactions made. Wait for sometime till you see 4 green checks in your transaction column.This indicates, the tokens have been successfully transferred to the destination chain
-
-📖 For more detailed steps , refer [Step by Step guide for CrossChain ERC-20](https://github.com/router-resources/Workshop-ERC20)
-
 # 🧭 `Table of contents`
-- [🚀 Steps](#-quick-start)
 - [🧭 Table of contents](#-table-of-contents)
 - [`Initiating the Contract`](#Initiating-the-Contract)
 - [`Creating state variables and the constructor`](#Creating-state-variables-and-the-constructor)
@@ -143,6 +102,7 @@ To transfer minted ERC-721 tokens from source chain to destination chain, we mak
 - [`Handling a cross-chain request`](#Handling-a-cross-chain-request)
 - [`Handling the acknowledgement received from destination chain`](#Handling-the-acknowledgement-received-from-destination-chain)
 - [`Full Code`](#Full-Code)
+- [🚀 Steps](#-quick-start)
 
 
   
@@ -494,6 +454,44 @@ constructor( address payable gatewayAddress,
 
 }
 ```
+# 🎯 `Steps`
+
+
+✍️ **Setting up your editor:**
+
+Browse to [Remix IDE](https://remix.ethereum.org/) and create a new file with ".sol" extension.
+
+💿 **Install all dependencies:**
+
+You don't need to install any dependencies. Remix automatically downloads all the dependencies for you during the time of compile.
+
+🧑‍💻 **Create your CrossChain ERC-721 Contract:**
+
+To create the contract for your CrossChain ERC-721 , copy-paste the [`Code`](#Full-Code) in the Remix Work Area and compile it.
+The Code has been comprehensively explained in this repository. Click [`here`](#Initiating-the-Contract) for the explanation.
+
+🚀 **Deploying the Contract:**
+
+You need to deploy the same contract on the source chain as well as the destination chain and pass in the required parameters to the [`constructer`](#Creating-state-variables-and-the-constructor) while deploying.
+
+🔨 **Mint created ERC-721 token on Source Chain:**
+
+In order to mint the created ERC-721 token on the source , mint function defined in openzeppelin can be used.
+
+🤝 **Set destination contract to source contract and source contract to destination contract:**
+
+To set destination contract to source contract and source contract to destination contract, we make use of setContractOnChain function. For more info, go to [`Setting up the Destination Contract on the Source Contract`](#Setting-up-the-Destination-Contract-on-the-Source-Contract)
+
+💵 **Send Route tokens to the source contract:**
+
+To send Route tokens to the source contract, copy the source contract address, visit https://devnet-faucet.routerprotocol.com/ , paste the address there and click on Get Route
+
+🚂 **Transfer minted ERC-721 tokens from source chain to destination chain:**
+
+To transfer minted ERC-721 tokens from source chain to destination chain, we make use of transferCrosschain function, which burns token with given id on source chain and mint the same token having same id on the destination chain. For more info, go to [`Transferring tokens from a source chain to a destination chain`](#Transferring-tokens-from-a-source-chain-to-a-destination-chain)
+
+🔍 **Browse to [Router Devnet Explorer](https://devnet-explorer.routerprotocol.com/crosstalks)** to see the transactions made. Wait for sometime till you see 4 green checks in your transaction column.This indicates, the tokens have been successfully transferred to the destination chain
+
 
 **2. CrossTalk Cheatsheet**
 
