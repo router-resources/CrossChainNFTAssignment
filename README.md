@@ -194,8 +194,6 @@ This is known as Blockchain Trilemma, where it's not possible to ensure scalabil
 
 **Need for Crosschain**
 
-<img width="269" alt="image" src="https://user-images.githubusercontent.com/124175970/224871409-eda67083-9557-4ef4-bc38-9b6e311a3c3a.png">
-
 Going CrossChain helps us leverage all these 3 features (Decentralisation + Scalabity + Security ) used for different operations performed in a single Dapp.
 This is exactly , where the Router comes in ! It is an interoperability layer to connect blockchains with a goal to integrate all the blockchains within the ecosystem. 
 
@@ -203,11 +201,12 @@ This is exactly , where the Router comes in ! It is an interoperability layer to
 
 ## `What is a CrossChain NFT ?`
 
-<img width="461" alt="image" src="https://user-images.githubusercontent.com/124175970/224872315-6b455b3f-e822-400d-ab2d-cb81ad135f5d.png">
-
 CrossChain NFTs are non-fungible tokens that can exist and be traded on multiple different blockchain networks. This means that an NFT created on one blockchain network, such as Ethereum, can be moved to and traded on another blockchain network, such as Binance Smart Chain or Polygon.
 
 Imagine you have an NFT on the Ethereum blockchain that represents a piece of artwork. If you want to sell or trade that NFT on another blockchain network, you would need to create a new NFT on that network, which can be time-consuming and costly. However, with CrossChain NFTs, you can simply transfer the original NFT to the new blockchain network, enabling you to sell or trade it without having to go through the process of creating a new one.
+
+<img width="461" alt="image" src="https://user-images.githubusercontent.com/124175970/224872315-6b455b3f-e822-400d-ab2d-cb81ad135f5d.png">
+
 
 ## `Understanding Router CrossTalk`
 
