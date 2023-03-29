@@ -682,20 +682,77 @@ constructor( address payable gatewayAddress,
 
 ✍️ **Setting up your editor:**
 
-Browse to [Remix IDE](https://remix.ethereum.org/) and create a new file with ".sol" extension.
+Log in to your preferred Solidity development platform, such as Remix or Truffle, etc. For this tutorial, we will be using Remix IDE.
+
+Create a new workspace by selecting the "New Workspace" option. You may need to specify a name for the workspace and choose a template to use. For example, you could select the "Solidity" template.
+
+Create a new file in the workspace by selecting the "New File" option. Give the file a name and save it with the ".sol" extension. For example, you could name the file "NFT" and save it as "NFT.sol".
+
+Open the "NFT.sol" file, which contains the code you want to use for your new file. Copy the entire code from the "coin.sol" file.
+
+Go back to the editing area for your new file in the workspace. Paste the code you copied from "NFT.sol" into this new file.
+
+✍️ **Setting up your wallet:**
+
+ Open your preferred web browser.
+
+Go to https://metamask.io/download/ and install the Metamask extension for your browser.
+
+Open the Metamask extension by clicking on its icon in your browser toolbar.
+
+Click on the "Create Wallet" button to create a new wallet.
+
+Set a password for your wallet in the provided field. Make sure to remember this password, as it will be needed to access your wallet in the future.
+
+Choose either the "Secure my wallet with a seed phrase" or "No thanks, maybe later" option. We recommend choosing the first option to secure your wallet with a backup seed phrase.
+
+Connect to the Mumbai network:
+
+Go to https://mumbai.polygonscan.com/ Scroll down to the bottom of the page and click on the "Add Mumbai Network" button to add Mumbai Network to Metamask Wallet
+
+Connect to the Fuji network:
+
+Go to https://testnet.snowtrace.io/ Scroll down to the bottom of the page and click on the "Add C-Chain ( Fuji ) Network" button to add Fuji Network to Metamask Wallet
+
+💵 **Adding faucets to your account on Fuji and Polygon**
+
+A faucet is a service that allows you to receive free cryptocurrency to use for testing purposes.
+
+To add faucet to your Fuji account, visit https://faucet.avax.network/ and follow these steps:
+
+Paste your wallet address in the provided field. Click on the "REQUEST 2 AVAX" button to receive free AVAX tokens to your wallet address.
+
+To add faucet to your account on the Mumbai network, visit https://faucet.polygon.technology/ and follow these steps:
+
+Paste your wallet address in the provided field. Click on the "Submit" button to receive free MATIC tokens to your wallet address.
 
 💿 **Install all dependencies:**
 
 You don't need to install any dependencies. Remix automatically downloads all the dependencies for you during the time of compile.
 
-🧑‍💻 **Create your CrossChain ERC-721 Contract:**
+🧑‍💻 **Compiling your CrossChain ERC-721 Contract:**
 
-To create the contract for your CrossChain ERC-721 , copy-paste the [`Code`](#Full-Code) in the Remix Work Area and compile it.
-The Code has been comprehensively explained in this repository. Click [`here`](#Initiating-the-Contract) for the explanation.
+Go back to your Remix IDE.
+
+In the left-hand sidebar, click on the "Solidity Compiler" option.
+
+Click on the "Compile NFT.sol" button to compile the code for your contract.
+
+If the compilation is successful, you should see a green checkmark next to the "NFT.sol" file in the left-hand sidebar.
+
+If there are any errors in your code, you will see them listed in the right-hand panel under the "Errors" tab. Click on each error to see a more detailed description of the problem and how to fix it.
+
+Alternatively, you can use the shortcut command, "Ctrl + S" on your keyboard to compile the code
 
 🚀 **Deploying the Contract:**
 
-You need to deploy the same contract on the source chain as well as the destination chain and pass in the required parameters to the [`constructer`](#Creating-state-variables-and-the-constructor) while deploying.
+Switch to the Fuji/Binance Network from your Metamask extension by clicking on the Metamask icon in your browser toolbar, and selecting "Fuji/Binance" from the network dropdown menu.
+
+To deploy the contract, go back to Remix and click on the "Deploy & Run Transactions" button and select the correct contract from the dropdown menu.
+
+Next, click on the "Environment" dropdown menu and select "Injected Web3" to ensure Remix can connect to your Metamask wallet enter the "Gateway address" for Fuji/Binance (which can be found at https://devnet.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config), and set the "DestGasLimit" to 500000.
+
+To deploy the contract on the Mumbai Network, switch back to the Metamask extension and select "Mumbai" from the network dropdown menu. Then, return to Remix and repeat the previous steps, but this time, select enter the corresponding "Gateway address" for Mumbai from the same website (https://devnet.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config). Set the "DestGasLimit" to 500000.
 
 🔨 **Mint created ERC-721 token on Source Chain:**
 
@@ -703,11 +760,21 @@ In order to mint the created ERC-721 token on the source , mint function defined
 
 🤝 **Set destination contract to source contract and source contract to destination contract:**
 
-To set destination contract to source contract and source contract to destination contract, we make use of setContractOnChain function. For more info, go to [`Setting up the Destination Contract on the Source Contract`](#Setting-up-the-Destination-Contract-on-the-Source-Contract)
+Switch to the Fuji/Binance Network by clicking on the Metamask extension in your browser and selecting "Fuji/Binance" from the dropdown menu. Once you are on the correct network, select the contract you deployed on Fuji from the "Contract" section of Remix.
+
+Then, click on the "setContractOnChain" function in the "Contract" section and pass in the following parameters:
+
+_chainId: 0 _destChainId: 80001 _contract: The address of the Mumbai contract that you just deployed Click on the "transact" button to execute the function.
+
+Switch to the Mumbai Network by clicking on the Metamask extension in your browser and selecting "Mumbai" from the dropdown menu. Once you are on the correct network, select the contract you deployed on Mumbai from the "Contract" section of Remix.
+
+Then, click on the "setContractOnChain" function in the "Contract" section and pass in the following parameters:
+
+_chainId: 0 _destChainId: 43113 _contract: The address of the Fuji/Binance contract that you just deployed Click on the "transact" button to execute the function.
 
 💵 **Send Route tokens to the source contract:**
 
-To send Route tokens to the source contract, copy the source contract address, visit https://devnet-faucet.routerprotocol.com/ , paste the address there and click on Get Route
+Copy the Fuji contract address that you just deployed in the previous steps, then visit https://devnet-faucet.routerprotocol.com/ in your web browser. Paste the Fuji contract address into the provided field and click on the "Get Route" button to receive some Route tokens in the Fuji contract.CrossTalk works on a prepaid fee model. Upon receiving the CrossTalk Request, the Router chain will calculate the estimated fee for executing the transaction on the destination chain in terms of ROUTE tokens and deduct the fee plus incentive from the feePayer address upfront.Fee and relayer incentive for any cross-chain request on Router have to be paid in ROUTE tokens only
 
 🚂 **Transfer minted ERC-721 tokens from source chain to destination chain:**
 
