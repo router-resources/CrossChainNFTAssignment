@@ -242,15 +242,12 @@ a) expiryTimestamp: The timestamp by which your
 cross-chain call will expire
 b) isAtomicCalls: To make a batch of transactions 
 atomic, set it to true else false
-c) feePayer: This specifies the address on the 
-Router chain from which the cross-chain fee will be 
-deducted.
 For example:- 
 ```sh 
 Utils.RquestArgs(1000000000000000, 
-false, Utils.FeePayer.APP)
+false)
 ```
-2) These structs should also be passed as parameters to requestToDest function to set the acknowledgement type , gas limit and gas price for 
+2) These structs should also be passed as parameters to requestToDest function to set the acknowledgement type , gas limit and gas price for 
 acknowledgment
 ```sh
 Utils.AckType(Utils.AckType.NO_ACK),
@@ -262,11 +259,12 @@ a) gasLimit: Required gas limit for executing
 cross-chain requests
 b)gasPrice: Gas price in wei to be used on the destination chain.
 c)destChainType: Represents the type of chain
+d)null address: "0x" is passed as the last member of the struct.
 d) destChainId: Chain ID of destination chain, in 
 string format.
 ```sh
 Utils.DestinationChainParams(destGasLimit,destGasPrice,_dstChainType,
-_dstChainId)
+_dstChainId,"0x")
 ```
 4) contractCalls: struct , including an array of payloads and contract addresses to be sent to the destination chain. You can send any information you want, and each piece of data will be sent to the respective contract address that you specify in the arrays.
 ```sh
@@ -278,17 +276,17 @@ struct ContractCalls {
 **Example Code for Above**
 
 ```sh
-IGateway(gatewayContract).requestToDest(
-Utils.RequestArgs(1000000000000000, false,
-Utils.FeePayer.APP),
-Utils.AckType(Utils.AckType.NO_ACK),
-Utils.AckGasParams(0,0),
-Utils.DestinationChainParams(
-destGasLimit,
-destGasPrice,
-_dstChainType,
-_dstChainId
-),
+      IGateway(gatewayContract).requestToDest(
+      Utils.RequestArgs(1000000000000000, false),
+      Utils.AckType(Utils.AckType.NO_ACK),
+      Utils.AckGasParams(destGasLimit, destGasPrice),
+      Utils.DestinationChainParams(
+      destGasLimit,
+      destGasPrice,
+      _dstChainType,
+      _dstChainId,
+      "0x"
+            ),
 Utils.ContractCalls(payloads, addresses)
 );
 ```
@@ -356,7 +354,7 @@ contract nft is ERC721, ICrossTalkApplication {
 
 The smart contract has the following state variables:
 
-1. **onwer** - an address variable which stores the address from which the contract has been deployed.
+1. **owner** - an address variable which stores the address from which the contract has been deployed.
 
 2. **gatewayContract** - an address variable which holds the address of the gateway contract. Gateway contracts are contracts which are pre-deployed on supported blockchains for cross-chain communication.The source chain's gateway contract communicates with the destination chain's gateway contract, enabling communication between application contracts deployed on different chains. Find GatewayContract Addresses [here](https://devnet.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config)
 
@@ -369,6 +367,7 @@ The constructor of the smart contract takes three parameters:
 1. **gatewayAddress** - an address variable which holds the address of the gateway contract.
 
 2. **_destGasLimit** - a uint64 variable which indicates the amount of gas required to execute the function that will handle cross-chain requests on the destination chain.
+3. **feePayer** - an address variable which holds an address on the Router Chain which is used to approve cross-talk requests made by the source contract. When a request is approved, the fee is deducted from this address
 
 Inside nft contract contructor, pass the name of your token followed by its symbol.
 
@@ -380,11 +379,12 @@ The smart contract extends the ERC721 standard and includes all the required fun
     uint64 public destGasLimit;
     mapping(uint64 => mapping(string => bytes)) public ourContractOnChains;
 constructor( address payable gatewayAddress,
-        uint64 _destGasLimit ) ERC721("Token","RTK")
+        uint64 _destGasLimit, string memory feePayer ) ERC20("Token","RTK")
         {
             gatewayContract=gatewayAddress;
             destGasLimit=_destGasLimit;
             owner=msg.sender;
+            IGateway(gatewayAddress).setDappMetadata(feePayer);
         }
 ```
 
@@ -438,7 +438,6 @@ The function calls the requestToDest function of the Gateway Contract to generat
 1. **requestArgs** is a struct having these parameters:-
 a) expiryTimestamp: The timestamp by which your cross-chain call will expire
 b) isAtomicCalls: To make a batch of transactions atomic, set it to true else false
-c) feePayer: This specifies the address on the Router chain from which the cross-chain fee will be deducted. For example:- Utils.RequestArgs(1000000000000000, false, Utils.FeePayer.APP)
 
 2. **actType** and **actGasParams** should also be passed as parameters to requestToDest function to set the acknowledgement type , gas limit and gas price for acknowledgment
 Utils.AckType(Utils.AckType.NO_ACK),
@@ -449,6 +448,7 @@ a)gasLimit: Required gas limit for executing cross-chain requests b)gasPrice: Ga
 d)destChainId: Chain ID of destination chain, in string format.
 Utils.DestinationChainParams(destGasLimit,destGasPrice,_dstChainType,
 _dstChainId)
+c) null address:"0x" is passed as the last member of the struct
 
 4. **contractCalls**: struct , including an array of payloads and contract addresses to be sent to the destination chain. You can send any information you want, and each piece of data will be sent to the respective contract address that you specify in the arrays.
 struct ContractCalls {
@@ -477,14 +477,15 @@ struct ContractCalls {
         payloads[0] = payload;
 
         IGateway(gatewayContract).requestToDest(
-            Utils.RequestArgs(1000000000000000, false, Utils.FeePayer.APP),
+            Utils.RequestArgs(1000000000000000, false),
             Utils.AckType(Utils.AckType.NO_ACK),
             Utils.AckGasParams(destGasLimit, destGasPrice),
             Utils.DestinationChainParams(
                 destGasLimit,
                 destGasPrice,
                 _dstChainType,
-                _dstChainId
+                _dstChainId,
+                "0x"
             ),
             Utils.ContractCalls(payloads, addresses)
         );
