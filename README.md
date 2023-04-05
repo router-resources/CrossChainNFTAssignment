@@ -817,7 +817,10 @@ To deploy the contract on the Mumbai Network, switch back to the Metamask extens
 
 🔨 **Mint created ERC-721 token on Source Chain:**
 
-In order to mint the created ERC-721 token on the source , mint function defined in openzeppelin can be used.
+In order to mint the created ERC-721 token on the source , mint function can be used. Pass in the wallet address you want your NFT to be minted to as the first parameter and the ID of the NFT to be minted as the second parameter.
+
+<img width="359" alt="image" src="https://user-images.githubusercontent.com/124175970/229954745-dc72575b-a4e1-432d-a374-ab11130c8130.png">
+
 
 🤝 **Set destination contract to source contract and source contract to destination contract:**
 
