@@ -345,9 +345,9 @@ The "ICrossTalkApplication.sol" and "IGateway.sol" contracts are imported from t
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0 <0.9.0;
 
-import "evm-gateway-contract/contracts/ICrossTalkApplication.sol";
-import "evm-gateway-contract/contracts/IGateway.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@routerprotocol/evm-gateway-contracts@1.0.5/contracts/IGateway.sol";
+import "@routerprotocol/evm-gateway-contracts@1.0.5/contracts/ICrossTalkApplication.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract nft is ERC721, ICrossTalkApplication {
 }
