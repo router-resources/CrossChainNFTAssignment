@@ -836,10 +836,16 @@ Then, click on the "setContractOnChain" function in the "Contract" section and p
 
 _chainId: 0 _destChainId: 43113 _contract: The address of the Fuji/Binance contract that you just deployed Click on the "transact" button to execute the function.
 
+<img width="359" alt="image" src="https://user-images.githubusercontent.com/124175970/229955110-47761a9c-d4d3-422a-b9c3-7397d7a4d34c.png">
+
+
 
 🚂 **Transfer minted ERC-721 tokens from source chain to destination chain:**
 
 To transfer minted ERC-721 tokens from source chain to destination chain, we make use of transferCrosschain function, which burns token with given id on source chain and mint the same token having same id on the destination chain. For more info, go to [`Transferring tokens from a source chain to a destination chain`](#Transferring-tokens-from-a-source-chain-to-a-destination-chain)
+
+<img width="376" alt="image" src="https://user-images.githubusercontent.com/124175970/229955326-d9bb0c67-354e-4aef-8373-9c1ce2ace27e.png">
+
 
 🔍 **Browse to [Router Devnet Explorer](https://alpha-explorer-ui.routerprotocol.com/crosstalks)** to see the transactions made. Wait for sometime till you see 4 green checks in your transaction column.This indicates, the tokens have been successfully transferred to the destination chain
 
