@@ -807,12 +807,13 @@ Next, click on the "Environment" dropdown menu and select "Injected Web3" to ens
 ![image](https://user-images.githubusercontent.com/124175970/228420931-d83b5a02-a875-4f35-98ea-203ad96ae979.png)
 
 
-Enter the "Gateway address" for Fuji/Binance (which can be found at https://devnet.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config), and set the "DestGasLimit" to 500000.
+Enter the "Gateway address" for Fuji/Binance (which can be found at https://devnet-alpha.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config), set the "DestGasLimit" to 500000 and pass the address on Router chain, from which you want the fee to be deducted
 
-![image](https://user-images.githubusercontent.com/124175970/228421715-d54f5ff0-5ccf-4bcf-a6cd-19d1f456f0e9.png)
+<img width="280" alt="image" src="https://user-images.githubusercontent.com/124175970/229953712-1493f542-f459-468b-a091-cf6cce496e58.png">
 
 
-To deploy the contract on the Mumbai Network, switch back to the Metamask extension and select "Mumbai" from the network dropdown menu. Then, return to Remix and repeat the previous steps, but this time, select enter the corresponding "Gateway address" for Mumbai from the same website (https://devnet.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config). Set the "DestGasLimit" to 500000.
+
+To deploy the contract on the Mumbai Network, switch back to the Metamask extension and select "Mumbai" from the network dropdown menu. Then, return to Remix and repeat the previous steps, but this time, select enter the corresponding "Gateway address" for Mumbai from the same website ( https://devnet-alpha.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config). Set the "DestGasLimit" to 50000 and pass any address in feePayer.
 
 🔨 **Mint created ERC-721 token on Source Chain:**
 
@@ -832,18 +833,12 @@ Then, click on the "setContractOnChain" function in the "Contract" section and p
 
 _chainId: 0 _destChainId: 43113 _contract: The address of the Fuji/Binance contract that you just deployed Click on the "transact" button to execute the function.
 
-💵 **Send Route tokens to the source contract:**
-
-Copy the Fuji contract address that you just deployed in the previous steps, then visit https://devnet-faucet.routerprotocol.com/ in your web browser. Paste the Fuji contract address into the provided field and click on the "Get Route" button to receive some Route tokens in the Fuji contract.CrossTalk works on a prepaid fee model. Upon receiving the CrossTalk Request, the Router chain will calculate the estimated fee for executing the transaction on the destination chain in terms of ROUTE tokens and deduct the fee plus incentive from the feePayer address upfront.Fee and relayer incentive for any cross-chain request on Router have to be paid in ROUTE tokens only
-
-![image](https://user-images.githubusercontent.com/124175970/228421799-e89e1a5e-471a-4629-8707-693e2a1520a9.png)
-
 
 🚂 **Transfer minted ERC-721 tokens from source chain to destination chain:**
 
 To transfer minted ERC-721 tokens from source chain to destination chain, we make use of transferCrosschain function, which burns token with given id on source chain and mint the same token having same id on the destination chain. For more info, go to [`Transferring tokens from a source chain to a destination chain`](#Transferring-tokens-from-a-source-chain-to-a-destination-chain)
 
-🔍 **Browse to [Router Devnet Explorer](https://devnet-explorer.routerprotocol.com/crosstalks)** to see the transactions made. Wait for sometime till you see 4 green checks in your transaction column.This indicates, the tokens have been successfully transferred to the destination chain
+🔍 **Browse to [Router Devnet Explorer](https://alpha-explorer-ui.routerprotocol.com/crosstalks)** to see the transactions made. Wait for sometime till you see 4 green checks in your transaction column.This indicates, the tokens have been successfully transferred to the destination chain
 
 [Router Devnet Docs](http://devnet-docs.routerprotocol.com/crosstalk/understanding-crosstalk)**
 
