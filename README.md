@@ -188,7 +188,7 @@ L2 solutions solves the problem of scalability , but they have much lesser nodes
 
 <img width="488" alt="image" src="https://user-images.githubusercontent.com/124175970/224870341-b8750142-f1e6-43cd-abf5-607fcc6add3e.png">
 
-So, we can clearly see, solving scalability , degrades security and decentralisation and having having more decentralisation and security results in making the chain less scalable .
+So, we can clearly see, solving scalability , degrades security and decentralisation and having more decentralisation and security results in making the chain less scalable .
 
 This is known as Blockchain Trilemma, where it's not possible to ensure scalability, decentralisation and security at the same time . 
 
@@ -216,15 +216,15 @@ Router's CrossTalk library is a tool that makes it easy for different blockchain
 
 **Gateway Contracts**
 
-Gateway contracts are contracts which are pre-deployed (refer appendix) on supported blockchains for cross-chain communication.The source chain's gateway contract communicates with the destination chain's gateway contract, enabling communication between application contracts deployed on different chains
+Gateway contracts are contracts which are pre-deployed on supported blockchains for cross-chain communication.The source chain's gateway contract communicates with the destination chain's gateway contract, enabling communication between application contracts deployed on different chains
 
-[Gateway Contract Addresses](https://devnet.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config)
+[Gateway Contract Addresses](https://devnet-alpha.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config)
 
 **CrossTalk Workflow**
 
 <img width="503" alt="image" src="https://user-images.githubusercontent.com/124175970/224872866-cb82abb4-d072-4c7d-bc46-672a18afbb54.png">
 
-When a user wants to execute a cross-chain request, they call the "requestToDest" function on the Router's Gateway contract. They pass the payload of data to be transferred from the source chain to the destination chain along with thenecessary parameters.The "requestToDest" function sends the data to the destination chain where the user's contract with the "handleRequestFromSource" function is waiting to receive it.Once the data is received, the "handleRequestFromSource" function processes it on thedestination chain.After processing the data, the destination chain sends an acknowledgment back to the source chain where "handleCrossTalkAck" function in the user's contract is used to handle it.
+When a user wants to execute a cross-chain request, they call the "requestToDest" function on the Router's Gateway contract. They pass the payload of data to be transferred from the source chain to the destination chain along with the necessary parameters. The "requestToDest" function sends the data to the destination chain where the user's contract with the "handleRequestFromSource" function is waiting to receive it.Once the data is received, the "handleRequestFromSource" function processes it on the destination chain. After processing the data, the destination chain sends an acknowledgment back to the source chain where "handleCrossTalkAck" function in the user's contract is used to handle it.
 
 **Understanding CrossTalk Functions**
 
@@ -247,7 +247,7 @@ For example:-
 Utils.RquestArgs(1000000000000000, 
 false)
 ```
-2) These structs should also be passed as parameters to requestToDest function to set the acknowledgement type , gas limit and gas price for 
+2) These structs should also be passed as parameters to requestToDest function to set the acknowledgement type , gas limit and gas price for 
 acknowledgment
 ```sh
 Utils.AckType(Utils.AckType.NO_ACK),
@@ -257,16 +257,16 @@ Utils.AckGasParams (destGasLimit, destGasPrice)
 these parameter:-
 a) gasLimit: Required gas limit for executing 
 cross-chain requests
-b)gasPrice: Gas price in wei to be used on the destination chain.
+b)gasPrice: Gas price in wei to be used on the destination chain.
 c)destChainType: Represents the type of chain
 d)null address: "0x" is passed as the last member of the struct.
 d) destChainId: Chain ID of destination chain, in 
 string format.
 ```sh
-Utils.DestinationChainParams(destGasLimit,destGasPrice,_dstChainType,
+Utils.DestinationChainParams(destGasLimit,destGasPrice,_dstChainType,
 _dstChainId,"0x")
 ```
-4) contractCalls: struct , including an array of payloads and contract addresses to be sent to the destination chain. You can send any information you want, and each piece of data will be sent to the respective contract address that you specify in the arrays.
+4) contractCalls: struct , including an array of payloads and contract addresses to be sent to the destination chain. You can send any information you want, and each piece of data will be sent to the respective contract address that you specify in the arrays.
 ```sh
 struct ContractCalls {
  bytes[] payloads;
@@ -293,7 +293,7 @@ Utils.ContractCalls(payloads, addresses)
 
 **handleRequestFromSource
 
-In this function, you will get the address of the contract that initiated this request from the source chain, the payload you created on the source chain, the source chain ID, and the source chain type. After receiving this information, you can process your payload and complete your cross-chain transaction.
+In this function, you will get the address of the contract that initiated this request from the source chain, the payload you created on the source chain, the source chain ID, and the source chain type. After receiving this information, you can process your payload and complete your cross-chain transaction.
 
 **Example Code for above**
 
@@ -356,7 +356,7 @@ The smart contract has the following state variables:
 
 1. **owner** - an address variable which stores the address from which the contract has been deployed.
 
-2. **gatewayContract** - an address variable which holds the address of the gateway contract. Gateway contracts are contracts which are pre-deployed on supported blockchains for cross-chain communication.The source chain's gateway contract communicates with the destination chain's gateway contract, enabling communication between application contracts deployed on different chains. Find GatewayContract Addresses [here](https://devnet.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config)
+2. **gatewayContract** - an address variable which holds the address of the gateway contract. Gateway contracts are contracts which are pre-deployed on supported blockchains for cross-chain communication.The source chain's gateway contract communicates with the destination chain's gateway contract, enabling communication between application contracts deployed on different chains. Find GatewayContract Addresses [here](https://devnet-alpha.lcd.routerprotocol.com/router-protocol/router-chain/multichain/chain_config)
 
 3. **destGasLimit** - a uint64 variable which indicates the amount of gas required to execute the function that will handle cross-chain requests on the destination chain.
 
@@ -687,7 +687,7 @@ constructor( address payable gatewayAddress,
 
 Log in to your preferred Solidity development platform, such as Remix or Truffle, etc. For this tutorial, we will be using Remix IDE.
 
-Create a new workspace by selecting the "New Workspace" option. You may need to specify a name for the workspace and choose a template to use. For example, you could select the "Solidity" template or let it be "Default" template ,etc 
+Create a new workspace by selecting the "New Workspace" option. You may need to specify a name for the workspace or let it be "Default" workspace .
 
 ![image](https://user-images.githubusercontent.com/124175970/228418777-5ecf5f9e-f3ff-4ae5-ad61-742b9aff3b12.png)
 
@@ -847,7 +847,7 @@ To transfer minted ERC-721 tokens from source chain to destination chain, we mak
 <img width="376" alt="image" src="https://user-images.githubusercontent.com/124175970/229955326-d9bb0c67-354e-4aef-8373-9c1ce2ace27e.png">
 
 
-🔍 **Browse to [Router Devnet Explorer](https://alpha-explorer-ui.routerprotocol.com/crosstalks)** to see the transactions made. Wait for sometime till you see 4 green checks in your transaction column.This indicates, the tokens have been successfully transferred to the destination chain
+🔍 **Browse to [Router Devnet Explorer](https://alpha-explorer-ui.routerprotocol.com/crosstalks)** to see the transactions made. Wait for sometime till you the status changed to Delivered in your transaction column.This indicates, the tokens have been successfully transferred to the destination chain
 
 [Router Devnet Docs](http://devnet-docs.routerprotocol.com/crosstalk/understanding-crosstalk)**
 
