@@ -51,16 +51,13 @@ This initiative is perfect for those interested in pursuing a career in the web 
 - [🚀 Steps](#Steps)
 
 
-## `What is an NFT ?`
+## `What is an ERC20 Token ?`
 
 ![_117548721_nfts2](https://user-images.githubusercontent.com/124175970/224860849-f037eb49-0288-49b8-a922-e08015b5280a.jpg)
 
+ERC20 Tokens are digital assets that are created using the Ethereum blockchain technology. They are programmable tokens that can be used to represent various types of assets, such as loyalty points, shares of stock, or even cryptocurrencies. ERC20 Tokens are fungible, which means that each token has the same value and can be exchanged for another token of the same value.
 
-NFT stands for Non-Fungible Token. Think of it like a digital certificate of ownership for something unique, like a rare trading card or a piece of art. Unlike regular currency, which is fungible (meaning one unit is interchangeable with another), NFTs are unique and cannot be exchanged for something else.
-
-NFTs are created using blockchain technology, which makes them secure and verifiable. They can represent anything that has value and uniqueness, such as digital art, music, videos, tweets, and even virtual real estate. When someone buys an NFT, they are buying the ownership rights to that specific item, which is recorded on the blockchain for everyone to see.
-
-The value of NFTs is determined by market demand, like any other collectible item. Some NFTs have sold for millions of dollars, while others are more affordable. NFTs have gained popularity recently as a way for artists and creators to monetize their digital creations and for collectors to own a unique piece of digital history.
+The "ERC20" part of the name refers to the technical standard that is used to create and manage these tokens. This standard defines the rules for creating new tokens and the functions that can be used to transfer and manage them.
 
 Here's an example of **Bored Ape** NFT series :-
 
